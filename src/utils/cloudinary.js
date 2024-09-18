@@ -1,5 +1,4 @@
 import { v2 as cloudinary } from "cloudinary";
-import { log } from "console";
 import fs from "fs";
 
 
@@ -19,8 +18,7 @@ cloudinary.config({
             resource_type:"auto"
         })
         //File has been uploaded successfull 
-        console.log("File is Uploaded");
-        console.log(response.url);
+        fs.unlinkSync(localfilepath)
         return response;
         
         

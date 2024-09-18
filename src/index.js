@@ -10,7 +10,6 @@ connectToDB()
 .then(()=>{
    // Error While connectting to server
    app.on('error',(error) =>{
-    console.log("ERROR: ",error);
     throw error;
     
    })
