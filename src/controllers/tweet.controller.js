@@ -8,9 +8,9 @@ import {asyncHandler} from "../utils/asyncHandler.js"
 const createTweet = asyncHandler(async (req, res) => {
     //TODO: create tweet
     const tweetOwner = req?.user._id
-    console.log(req?.user._id.toString())
+    
     const {content} = req?.body;
-    console.log(content)
+   
     if (!tweetOwner) {
         throw new ApiError(400,"Unauthorized User ! Log in")
     }
