@@ -9,7 +9,7 @@ app.use(cors({
     credentials:true
 }));
 
-app.use(express.json({
+app.use(express.json({  // express.json() is middleware which accepts json data and parsed it and puts the data in req.bdy
     limit:"16kb"
 }))
 
@@ -20,12 +20,20 @@ app.use(cookieParser());
 
 
 // import router 
-import userRouter from "./routes/user.routes.js"
+import userRouter from "./routes/user.routes.js";
+import videoRouter from "./routes/video.routes.js";
+import tweetRouter from "./routes/tweet.routes.js"
+import subscriptionRouter from "./routes/subscription.routes.js";
+import playlistRouter from "./routes/playlist.routes.js"
 
 
 
 //router declaration
 
 app.use("/api/v1/users",userRouter);
+app.use("/api/v1/video",videoRouter);
+app.use("/api/v1/tweets", tweetRouter)
+app.use("/api/v1/subscription", subscriptionRouter)
+app.use("/api/v1/playlist", playlistRouter)
 
 export {app};
