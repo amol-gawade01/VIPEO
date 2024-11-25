@@ -9,6 +9,7 @@ import {
 } from "../controllers/video.controller.js"
 import {verifyJWT} from "../middlewares/auth.middleware.js"
 import {upload} from "../middlewares/multer.middleware.js"
+import {countView} from "../middlewares/countview.middleware.js"
 
 const router = Router();
 router.use(verifyJWT); // Apply verifyJWT middleware to all routes in this file
@@ -30,7 +31,7 @@ router.route("/publish-video").post(
     );
 
 router.route("/:videoId")
-    .get(getVideoById)
+    .get(countView,getVideoById)
     .delete(deleteVideo)
     .patch(upload.single("thumbnail"), updateVideo);
 
